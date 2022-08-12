@@ -1,6 +1,8 @@
 import datetime
 import gspread 
 from google.oauth2.service_account import Credentials 
+import pyfiglet
+import tabulate import tabulate
 
 
 # The connection between applications and google sheets
@@ -176,10 +178,10 @@ def delete_movie(user_data, user_movie_data, user_name):
             # delete the movie from data list
             new_list_of_movies = []
             for movie in user_movie_data:
-                if int(book[0]) != int(user_input_id):
+                if int(movie[0]) != int(user_input_id):
                     # Id number is read back into app as string 
                     # this converts back into integer
-                    new_int_movie_id = int(book[0])
+                    new_int_movie_id = int(movie[0])
                     movie.pop(0)
                     movie.insert(0, new_int_movie_id)
                     new_list_of_movies.append(movie)
@@ -290,7 +292,7 @@ def check_movie_id(data, movie_id):
     movie_id = []
 
     for movie in data: 
-        movie_ids.append(int(book[0]))
+        movie_ids.append(int(movie[0]))
 
     if int(movie_id) in movie_ids: 
         return True 
@@ -331,12 +333,16 @@ def init():
             user_login()
             break
         if user_input in {"R", "r"}: 
-            user_login()
+            user_register()
             break
         if user_input in {"X", "x"}: 
-            user_login()
-            break
+            print("Thank you for using WhatsThatMovie")
+            quit()
+        else:
+            print("Wrong choice, type L, R OR X")
 
+
+init ()
 
 
 
