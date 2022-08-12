@@ -1,6 +1,8 @@
 import datetime
 import gspread 
 from google.oauth2.service_account import Credentials 
+import pyfiglet
+from tabulate import tabulate
 
 
 # The connection between applications and google sheets
@@ -14,6 +16,9 @@ CREDS = Credentials.from_service_account_file('creds.json')
 SCOPED_CREDS = CREDS.with_scopes(SCOPE)
 GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
 SHEET = GSPREAD_CLIENT.open('WhatsThatMovie')
+
+ascii_banner = pyfiglet.figlet_format("><>WHATS-THAT-MOVIE <><")
+print(ascii_banner)
 
 def user_login():
     """
