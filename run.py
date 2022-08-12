@@ -203,7 +203,7 @@ def delete_movie(user_data, user_movie_data, user_name):
 # UTILITY FUNCTIONS 
 
 
-def validate_login_input(input_name)
+def validate_login_input(input_name):
    """
    Function means that users cannot submit empty values
    """
@@ -214,7 +214,34 @@ def validate_login_input(input_name)
         return user_input_field
     if len(user_input_field) == 0:
         print(f"{input_name} can't be empty")
-        
+
+def validate_signup_input(input_name):
+    """
+    Function means that users can't submit empty values at sign up
+    """
+    while True:
+        user_input_field = input(
+            f'Choose a {input_name} (4-10 characters):\n')
+        user_name_exists = check_usernme(user_input_field)
+
+        if len(user_input_field) > 3 and len(user_input_field) < 11 and not user_name_exists:
+            print(f"Your {input_name} {user_input_field} is valid")
+            return user_input_field
+        if user_name_exists:
+            print(f"{input_name} already exists, pick another")
+        if len(user_input_field) > 0 and len(user_input_field) < 4: 
+            print(f"{input_name} is too short")
+        if len(user_input_field) > 10:
+            print(f"{input_name} is too long")
+        if len(user_input_field) ==0:
+            print(f"{input_name} can't be empty")
+
+    
+
+
+
+
+
 
 
 
