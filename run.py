@@ -17,7 +17,7 @@ SCOPED_CREDS = CREDS.with_scopes(SCOPE)
 GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
 SHEET = GSPREAD_CLIENT.open('WhatsThatMovie')
 
-ascii_banner = pyfiglet.figlet_format("><> WHATS-THAT-MOVIE <><")
+ascii_banner = pyfiglet.figlet_format("><> WHATS-THAT- MOVIE <><")
 print(ascii_banner)
 
 def user_login():
@@ -329,7 +329,7 @@ def init():
     """
     Function starts application and asks for first movie"
     """
-    print("Welcome to WhatsThatMovie! A website where you will never forget a favourite movie again.")
+    print("Welcome to Whats That Movie! A website where you will never forget a movie again.")
 
     while True: 
         user_input = input(
