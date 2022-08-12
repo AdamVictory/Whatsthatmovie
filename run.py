@@ -233,9 +233,46 @@ def validate_signup_input(input_name):
             print(f"{input_name} is too short")
         if len(user_input_field) > 10:
             print(f"{input_name} is too long")
-        if len(user_input_field) ==0:
+        if len(user_input_field) == 0:
             print(f"{input_name} can't be empty")
-            
+
+
+def authenticate_user(user_name, user_pass):
+    """
+    Function takes the user details and compares them with the google sheet
+    """
+    # list of current usernames from sheet 
+    worksheet_objs = SHEET.worksheets()
+    username_list = []
+    for worksheet in worksheet_objs:
+        username_list.append(worksheet.title)
+
+    if user_name in username_list: 
+        if check_password(user_name, user_pass): 
+            return True
+
+    else: 
+        return False
+
+
+def check_password(user_name, user_pass):
+    """
+    Function checks user password
+    """
+    user_sheet = SHEET.worksheet(user_name)
+    user_data = user_sheet.get_all_values()
+    user_data_row = user_data[1]
+    user_password = user_data_row[1]
+    if user_pass == user_password:
+        return True
+    return False
+
+    
+
+
+
+
+
 
     
 
