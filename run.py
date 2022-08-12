@@ -1,8 +1,6 @@
 import datetime
 import gspread 
 from google.oauth2.service_account import Credentials 
-import pyfiglet
-import tabulate import tabulate
 
 
 # The connection between applications and google sheets
