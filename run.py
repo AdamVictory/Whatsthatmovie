@@ -296,7 +296,33 @@ def check_movie_id(data, movie_id):
         return True 
     return False 
 
-    
+
+def assign_movie_id(user_movie_data): 
+    """
+    Function assigns the ID as 1 if no other movies present in list 
+    """
+    while True: 
+        watchlist_input = input("Have you watched this movie? Y or N:\n:")
+        if watchlist_input in {"Y", "y"}:
+            while True: 
+                rating_input = input("Please rate movie out of 5:\n:")
+                if rating_input.isdigit():
+                    if int(rating_input) > 0 and int(rating_input) < 6: 
+                        movie_data = movie_data + [True, int(rating_input)]
+                        return movie_data
+                print("Add a number between 1 and 5")
+            break 
+        if watchlist_input in {"N", "n"}:
+            movie_data = movie_data + [False, 0]
+            return movie_data
+        print("Wrong choice, Choose Y or N")
+
+        
+
+
+
+
+
 
 
 
