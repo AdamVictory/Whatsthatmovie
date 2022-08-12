@@ -322,11 +322,11 @@ def init():
     """
     Function starts application and asks for first movie"
     """
-    print("Welcome to WhatsThatMovie! A website where you will never forget your favourite movie again.")
+    print("Welcome to WhatsThatMovie! A website where you will never forget a favourite movie again.")
 
     while True: 
         user_input = input(
-            "Press 'L' to login, or 'R' tp register, or 'X' to quit:\n:")
+            "Press 'L' to login, or 'R' to register, or 'X' to quit:\n")
         if user_input in {"L", "l"}: 
             user_login()
             break
