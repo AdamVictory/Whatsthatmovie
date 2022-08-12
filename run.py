@@ -106,7 +106,23 @@ def user_dashboard(user_name):
                 print("No movies added")
                 user_dashboard(user_name)
 
+def add_movie(user_name, user_data, user_movie_data):
+    """
+    Function creates a new record
+    """
+    while True: 
+        movie_data = []
+        movie_prompt_labels = ["title", "director", "genre"]
+        for label in movie_prompt_labels:
+            user_input = input(f"Add movie {label}:\n")
+            movie_data.append(user_input)
 
+        movie_data = watchlist_and_rating_input(movie_data)
+
+        if "" not in movie_data:
+            print("Data is correct")
+            break
+        print("You entered empty values! Try again")
 
 
 
