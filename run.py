@@ -133,7 +133,7 @@ def add_movie(user_name, user_data, user_movie_data):
 
     user_dashboard(user_name)
 
-def edit_movie(user_data, user_movie_data, user_name)
+def edit_movie(user_data, user_movie_data, user_name):
     """
     This function allows the user to edit their movie records
     """
@@ -198,6 +198,27 @@ def delete_movie(user_data, user_movie_data, user_name):
 
             break
         print("That movie ID does not exist")
+
+
+# UTILITY FUNCTIONS 
+
+
+def validate_login_input(input_name)
+   """
+   Function means that users cannot submit empty values
+   """
+   while True:
+    user_input_field = input(f"Enter your {input_name}:\n")
+
+    if len(user_input_field) > 0: 
+        return user_input_field
+    if len(user_input_field) == 0:
+        print(f"{input_name} can't be empty")
+        
+
+
+
+
 
 
 
