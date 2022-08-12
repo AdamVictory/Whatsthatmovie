@@ -150,7 +150,7 @@ def edit_movie(user_data, user_movie_data, user_name):
         user_input_id = input("Choose movie ID from list:\n")
         if user_input_id.isdigit() and check_movie_id(user_movie_data, user_input_id):
 
-            movie_data = watchlist_and_rating_input(movie_data):
+            movie_data = watchlist_and_rating_input(movie_data)
 
             new_list_of_movies = []
             for movie in user_movie_data:
