@@ -57,7 +57,7 @@ def user_register():
     SHEET.add_worksheet(title=user_name, rows="100", cols="20")
     user_sheet = SHEET.worksheet(user_name)
     user_sheet.append_row(["Username", "Password", "Date Joined"])
-    user_sheet.format('A1:C1', {'text-format': {'bold': True}})
+    user_sheet.format('A1:C1', {'textFormat': {'bold': True}})
     user_sheet.append_row(
         [user_name, user_pass, str(datetime.datetime.now().date())])
     user_sheet.append_row([" ", " ", " ", " "])
@@ -348,20 +348,3 @@ def init():
 
 
 init()
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
