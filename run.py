@@ -282,7 +282,23 @@ def check_username(user_name):
         return True
     return False
 
+
+def check_movie_id(data, movie_id):
+    """
+    Function checks that the movie ID exists in the users list
+    """
+    movie_id = []
+
+    for movie in data: 
+        movie_ids.append(int(book[0]))
+
+    if int(movie_id) in movie_ids: 
+        return True 
+    return False 
+
     
+
+
 
 
 
