@@ -336,7 +336,7 @@ def init():
     """
     Function starts application and asks for first movie"
     """
-    print("Welcome to Whats That Movie! A website where you will never forget a movie again.")
+    print("Welcome to Whats That Movie! Don't you just hate when you can never think of movies to suggest to your friends? Well now you will never forget your favourite movie again.")
 
     while True: 
         user_input = input(
