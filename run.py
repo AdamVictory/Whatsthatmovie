@@ -241,7 +241,7 @@ def authenticate_user(user_name, user_pass):
     """
     Function takes the user details and compares them with the google sheet
     """
-    # list of current usernames from sheet 
+    # get list of current usernames from sheet 
     worksheet_objs = SHEET.worksheets()
     username_list = []
     for worksheet in worksheet_objs:
@@ -267,7 +267,25 @@ def check_password(user_name, user_pass):
         return True
     return False
 
+
+def check_username(user_name): 
+    """
+    Function that checks if username already exists
+    """
+    # get list of current usernames from sheet
+    worksheet_objs = SHEET.worksheet()
+    username_list = []
+    for worksheet in worksheet_objs:
+        username_list.append(worksheet.title)
+
+    if user_name in username_list:
+        return True
+    return False
+
     
+
+
+
 
 
 
