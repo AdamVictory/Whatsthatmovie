@@ -125,5 +125,89 @@ def add_movie(user_name, user_data, user_movie_data):
         print("You entered empty values! Try again")
 
 
+    # Assign movie ID
+    new_movie_id = assign_movie_id(user_movie_data)
+    movie_data.insert(0, new_movie_id)
+
+    user_data.append_row(movie_data)
+
+    user_dashboard(user_name)
+
+def edit_movie(user_data, user_movie_data, user_name)
+    """
+    This function allows the user to edit their movie records
+    """
+    while True: 
+        movie_data = []
+        user_input_id = input("Choose movie ID from list:\n")
+        if user_input_id.isdigit() and check_movie_id(user_movie_data, user_input_id):
+
+            movie_data = watchlist_and_rating_input(movie_data)
+
+            new_list_of_movies = []
+            for movie in user_movie_data:
+                movie[0] = int(movie[0])
+                movie[4] = True if movie[4] == 'TRUE' else False 
+                movie[5] = int(movie[5])
+
+                new_list_of_movies.append(movie)
+                if int(movie[0]) == int(user_input_id):
+                    movie[4] = movie_data[0]
+                    movie[5] = movie_data [1]
+                user_data_delete_rows(4, 20)
+                # Write new list back to sheet 
+                for movie in new_list_of_movies:
+                   user_data.append_row(movie)
+                user_data.add_rows(1)
+
+                print("Movie updated, returning to dashboard")
+                user_dashboard(user_name)
+                
+                break
+            print("Movie ID does not exist")
+
+def delete_movie(user_data, user_movie_data, user_name):
+    """
+    Function allowsd the user to delete an ID relating to a movie
+    """
+    while True: 
+        user_input_id = input("Choose movie ID from above list:\n")
+        if user_input_id.isdigit() and check_movie_id(user_movie_data, user_input_id):
+            # delete the movie from data list
+            new_list_of_movies = []
+            for movie in user_movie_data:
+                if int(book[0]) != int(user_input_id):
+                    # Id number is read back into app as string 
+                    # this converts back into integer
+                    new_int_movie_id = int(book[0])
+                    movie.pop(0)
+                    movie.insert(0, new_int_movie_id)
+                    new_list_of_movies.append(movie)
+
+            user_data.delete_rows(4,20)
+            # Write new list back to sheet 
+            for movie in new_list_of_movies:
+                user_data.append_row(movie)
+            user_data.add_rows(1)
+
+            # user_data.add_rows(1)
+
+            # view_all_movies(user_data, user_name, user_movie_data)
+            print("Movie deleted")
+            user_dashboard(user_name)
+
+            break
+        print("That movie ID does not exist")
+
+
+
+
+
+
+
+
+
+
+
 
 
