@@ -86,6 +86,7 @@ def user_dashboard(user_name):
             break
         if user_input in {"A", "a"}:
             add_movie(user_name, user_data, user_movie_data)
+            break
         print("Wrong choice, please type B, A or X")
 
 
@@ -149,7 +150,7 @@ def edit_movie(user_data, user_movie_data, user_name):
         user_input_id = input("Choose movie ID from list:\n")
         if user_input_id.isdigit() and check_movie_id(user_movie_data, user_input_id):
 
-            movie_data = watchlist_and_rating_input(movie_data)
+            movie_data = watchlist_and_rating_input(movie_data):
 
             new_list_of_movies = []
             for movie in user_movie_data:
@@ -232,7 +233,7 @@ def validate_signup_input(input_name):
         user_name_exists = check_username(user_input_field)
 
         if len(user_input_field) > 3 and len(user_input_field) < 11 and not user_name_exists:
-            print(f"Your {input_name} {user_input_field} is valid")
+            print(f"Your {input_name} {user_input_field} is valid!")
             return user_input_field
         if user_name_exists:
             print(f"{input_name} already exists, pick another")
