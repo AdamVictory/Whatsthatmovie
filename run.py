@@ -95,7 +95,7 @@ def view_all_movies(user_data, user_name, user_movie_data):
         This function allows the user to view all of their movies
         """
         if user_movie_data:
-            print(tabulate(user_movie_data, headers=["ID", "Movie Title", "Director", "Genre", "Rating (1-5)" ]))
+            print(tabulate(user_movie_data, headers=["ID", "Movie Title", "Director", "Genre", "Rating (1-5)"]))
             while True:
                 print("Want to update movie details?")
                 user_input = input(
@@ -309,18 +309,24 @@ def assign_movie_id(user_movie_data):
     """
     Function assigns the ID as 1 if no other movies present in list 
     """
+
+
+def watchlist_and_rating_input(movie_data):
+    """
+    This function allows the user to edit or add details to their movie record
+    """
     while True: 
-        watchlist_input = input("Have you watched this movie? Y or N:\n:")
-        if watchlist_input in {"Y", "y"}:
+        watch_list_input = input("Have you watched this movie? Y or N:\n")
+        if watch_list_input in {"Y", "y"}:
             while True: 
-                rating_input = input("Please rate movie out of 5:\n:")
+                rating_input = input("Please rate movie out of 5:\n")
                 if rating_input.isdigit():
                     if int(rating_input) > 0 and int(rating_input) < 6: 
                         movie_data = movie_data + [True, int(rating_input)]
                         return movie_data
                 print("Add a number between 1 and 5")
             break 
-        if watchlist_input in {"N", "n"}:
+        if watch_list_input in {"N", "n"}:
             movie_data = movie_data + [False, 0]
             return movie_data
         print("Wrong choice, Choose Y or N")
