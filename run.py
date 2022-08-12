@@ -317,7 +317,26 @@ def assign_movie_id(user_movie_data):
             return movie_data
         print("Wrong choice, Choose Y or N")
 
-        
+
+def init():
+    """
+    Function starts application and asks for first movie"
+    """
+    print("Welcome to WhatsThatMovie! A website where you will never forget your favourite movie again.")
+
+    while True: 
+        user_input - input(
+            "Press 'L' to login, or 'R' tp register, or 'X' to quit:\n:")
+        if user_input in {"L", "l"}: 
+            user_login()
+            break
+        if user_input in {"R", "r"}: 
+            user_login()
+            break
+        if user_input in {"X", "x"}: 
+            user_login()
+            break
+
 
 
 
