@@ -273,7 +273,7 @@ def check_username(user_name):
     Function that checks if username already exists
     """
     # get list of current usernames from sheet
-    worksheet_objs = SHEET.worksheet()
+    worksheet_objs = SHEET.worksheets()
     username_list = []
     for worksheet in worksheet_objs:
         username_list.append(worksheet.title)
