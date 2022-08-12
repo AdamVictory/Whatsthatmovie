@@ -17,7 +17,7 @@ SCOPED_CREDS = CREDS.with_scopes(SCOPE)
 GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
 SHEET = GSPREAD_CLIENT.open('WhatsThatMovie')
 
-ascii_banner = pyfiglet.figlet_format("><>WHATS-THAT-MOVIE <><")
+ascii_banner = pyfiglet.figlet_format("><> WHATS-THAT-MOVIE <><")
 print(ascii_banner)
 
 def user_login():
@@ -68,7 +68,7 @@ def user_register():
 
 def user_dashboard(user_name):
     """
-    Function provides a dashboard for the user once logged in here they can add, update and delete a movie
+    Function provides a dashboard for the user once logged in here they can update and delete a movie
     """
     print(f"Welcome to your dashboard, {user_name}")
     user_data = SHEET.worksheet(user_name)
@@ -76,7 +76,7 @@ def user_dashboard(user_name):
 
     while True: 
         user_input = input(
-            "Type 'B' to view Movies, 'A' to add a movie, 'X' to logout:\n")
+            "Press 'B' to view movies, 'A' to add a movie, 'X' to logout:\n")
         if user_input in {"X", "x"}:
             print("You have logged out")
             init()
@@ -84,10 +84,12 @@ def user_dashboard(user_name):
         if user_input in ("B", "b"):
             view_all_movies(user_name, user_data, user_movie_data)
             break
+        if user_input in {"A", "a"}:
+            add_movie(user_name, user_data, user_movie_data)
         print("Wrong choice, please type B, A or X")
 
 
-    def view_all_movies(user_data, user_name, user_movie_data):
+def view_all_movies(user_data, user_name, user_movie_data):
         """
         This function allows the user to view all of their movies
         """
