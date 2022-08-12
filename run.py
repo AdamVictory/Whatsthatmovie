@@ -325,7 +325,7 @@ def init():
     print("Welcome to WhatsThatMovie! A website where you will never forget your favourite movie again.")
 
     while True: 
-        user_input - input(
+        user_input = input(
             "Press 'L' to login, or 'R' tp register, or 'X' to quit:\n:")
         if user_input in {"L", "l"}: 
             user_login()
@@ -340,7 +340,7 @@ def init():
             print("Wrong choice, type L, R OR X")
 
 
-init ()
+init()
 
 
 
