@@ -60,3 +60,27 @@ def user_register():
     user_sheet.format('A3:D3', {'textFormat': {'bold': True}})
 
     user_dashboard(user_name)
+
+def user_dashboard(user_name):
+    """
+    Function provides a dashboard for the user once logged in here they can add, update and delete a movie
+    """
+    print(f"Welcome to your dashboard, {user_name}")
+    user_data = SHEET.worksheet(user_name)
+    user_movie_data = user_data.get_all_values()[3:]
+
+    while True: 
+        user_input = input(
+            "Type 'B' to view Movies, 'A' to add a movie, 'X' to logout:\n")
+        if user_input in {"X", "x"}:
+            print("You have logged out")
+            init()
+            break
+        if user_input in ("B", "b"):
+            view_all_movies(user_name, user_data, user_movie_data)
+            break
+        print("Wrong choice, please type B, A or X")
+
+        
+
+        
