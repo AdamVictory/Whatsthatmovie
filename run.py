@@ -1,3 +1,4 @@
+import datetime
 import gspread 
 from google.oauth2.service_account import Credentials 
 
@@ -47,7 +48,15 @@ def user_register():
 
     print(f"You have signed up and are logged in as user {user_name}!")
 
+    # Insert valid user details to google sheets 
+    SHEET.add_worksheet(title=user_name, rows="100", cols="20")
+    user_sheet = SHEET.worksheet(user_name)
+    user_sheet.append_row(["Username", "Password", "Date Joined"])
+    user_sheet.format('A1:C1', {'text-format': {'bold': True}})
+    user_sheet.append_row(
+        [user_name, user_pass, str(datetime.datetime.now().date())])
+    user_sheet.append_row([" ", " ", " ", " "])
+    user_sheet.append_row(["Movie ID", "Movie Title", "Director", "Genre"])
+    user_sheet.format('A3:D3', {'textFormat': {'bold': True}})
 
-
-
-
+    user_dashboard(user_name)
