@@ -81,6 +81,33 @@ def user_dashboard(user_name):
             break
         print("Wrong choice, please type B, A or X")
 
-        
 
-        
+    def view_all_movies(user_data, user_name, user_movie_data):
+        """
+        This function allows the user to view all of their movies
+        """
+        if user_movie_data:
+            print(tabulate(user_movie_data, headers=["ID", "Movie Title", "Director", "Genre", "Rating (1-5)" ]))
+            while True:
+                print("Want to update movie details?")
+                user_input = input(
+                    "Press E to edit, D to delete, or R to return to dashboard\n")
+
+                if user_input in {"R", "r"}:
+                    user_dashboard(user_name)
+                if user_input in {"E", "e"}:
+                    edit_movie(user_data, user_movie_data, user_name)
+                    break
+                if user_input in {"D", "d"}:
+                    delete_movie(user_data, user_movie_data, user_name)
+                    break
+                print("Wrong choice")
+            else: 
+                print("No movies added")
+                user_dashboard(user_name)
+
+
+
+
+
+
