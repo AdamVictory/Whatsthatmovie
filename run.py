@@ -316,7 +316,7 @@ def assign_movie_id(user_movie_data):
     """
     Function assigns the ID as 1 if no other movies present in list 
     """
-    if not user_movie_data
+    if not user_movie_data:
         return 1 
     else: 
         return int(user_movie_data[-1][0]) + 1
