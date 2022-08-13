@@ -1,16 +1,15 @@
 import datetime
-import gspread 
+import gspread
 from google.oauth2.service_account import Credentials 
 import pyfiglet
 from tabulate import tabulate
-
 
 # The connection between applications and google sheets
 SCOPE = [
     "https://www.googleapis.com/auth/spreadsheets",
     "https://www.googleapis.com/auth/drive.file",
     "https://www.googleapis.com/auth/drive"
-    ]
+]
 
 CREDS = Credentials.from_service_account_file('creds.json')
 SCOPED_CREDS = CREDS.with_scopes(SCOPE)
@@ -71,6 +70,7 @@ def user_dashboard(user_name):
     Function provides a dashboard for the user once logged in here they can update and delete a movie
     """
     print(f"Welcome to your dashboard, {user_name}")
+    # Get all user data for this username
     user_data = SHEET.worksheet(user_name)
     user_movie_data = user_data.get_all_values()[3:]
 
@@ -91,24 +91,24 @@ def user_dashboard(user_name):
 
 
 def view_all_movies(user_data, user_name, user_movie_data):
-        """
-        This function allows the user to view all of their movies
-        """
-        if user_movie_data:
-            print(tabulate(user_movie_data, headers=["ID", "Movie Title", "Director", "Genre", "Rating (1-5)"]))
-            while True:
-                print("Want to update movie details?")
-                user_input = input(
-                    "Press E to edit, D to delete, or R to return to dashboard\n")
+    """
+    This function allows the user to view all of their movies
+    """
+    if user_movie_data:
+        print(tabulate(user_movie_data, headers=["ID", "Movie Title", "Director", "Genre", "Rating (1-5)"]))
+        while True:
+            print("Want to update movie details?")
+            user_input = input(
+                "Press E to edit, D to delete, or R to return to dashboard\n")
 
-                if user_input in {"R", "r"}:
-                    user_dashboard(user_name)
-                if user_input in {"E", "e"}:
-                    edit_movie(user_data, user_movie_data, user_name)
-                    break
-                if user_input in {"D", "d"}:
-                    delete_movie(user_data, user_movie_data, user_name)
-                    break
+            if user_input in {"R", "r"}:
+                user_dashboard(user_name)
+            if user_input in {"E", "e"}:
+                edit_movie(user_data, user_movie_data, user_name)
+                break
+            if user_input in {"D", "d"}:
+                delete_movie(user_data, user_movie_data, user_name)
+                break
                 print("Wrong choice")
             else: 
                 print("No movies added")
@@ -133,7 +133,7 @@ def add_movie(user_name, user_data, user_movie_data):
         print("You entered empty values! Try again")
 
 
-    # Assign movie ID
+    # Assign Movie ID
     new_movie_id = assign_movie_id(user_movie_data)
     movie_data.insert(0, new_movie_id)
 
@@ -185,7 +185,7 @@ def delete_movie(user_data, user_movie_data, user_name):
             new_list_of_movies = []
             for movie in user_movie_data:
                 if int(movie[0]) != int(user_input_id):
-                    # Id number is read back into app as string 
+                    #ID number is read back into app as string 
                     # this converts back into integer
                     new_int_movie_id = int(movie[0])
                     movie.pop(0)
