@@ -62,8 +62,6 @@ I tested this project using (http://pep8online.com/), no errors were reported. H
 
 There were some bugs that developed throughout the making of this app. Most were to do with the format of the python code. 
 
-The only current issue is the Movie ID part does not work in Google Sheets. 
-
 
 
 
