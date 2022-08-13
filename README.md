@@ -51,7 +51,6 @@ Within the user dashboard, the next step is to add a movie to your list. The use
 
 The user can choose to view all of their movies added, they can also choose to edit this list. 
 
-<img src="">
 
 
 ## Testing 
