@@ -52,7 +52,7 @@ def user_register():
 
     print(f"You have signed up and are logged in as user {user_name}!")
 
-    # Insert valid user details to google sheets 
+    # Write valid user details to new sheet and populate rows
     SHEET.add_worksheet(title=user_name, rows="100", cols="20")
     user_sheet = SHEET.worksheet(user_name)
     user_sheet.append_row(["Username", "Password", "Date Joined"])
