@@ -49,9 +49,11 @@ Within the user dashboard, the next step is to add a movie to your list. The use
 
 ### View All Movies
 
-The user can choose to view all of their movies added, they can also choose to edit this list. 
+The user can choose to view all of their movies added, they can also choose to edit this list. For example if they dont like that movie anymore they can delete it from the list
 
 <img src="https://github.com/AdamVictory/Whatsthatmovie/blob/main/wireframescreenshots/viewmovie.png">
+
+<img src="https://github.com/AdamVictory/Whatsthatmovie/blob/main/wireframescreenshots/editdelete.png">
 
 
 ## Testing 
