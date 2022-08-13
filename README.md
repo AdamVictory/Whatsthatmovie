@@ -31,7 +31,7 @@ I used a procedural approach. The functionality is broken into functins, with va
 
 Below are the various different user journeys the user will view throughout using this app: 
 
-### Register 
+### Register or Login 
 
 When the dashboard first opens, the user will have to create an account if they dont have one already. If they do they can also login here. The user can choose 'R' to register, 'L' to login if they have an account, and 'X' to quit. 
 
@@ -39,7 +39,30 @@ When the dashboard first opens, the user will have to create an account if they 
 
 If it is the users first time using this app they must create a username and password that is between 4 and 10 characters in length. They must also confirm their password to ensure they don't forget it. It also will tell the user if the username they have chosen already exists. Once this is validated they will proceed to the user dashnoard. 
 
-<img src=">
+<img src="https://github.com/AdamVictory/Whatsthatmovie/blob/main/wireframescreenshots/username/password.png">
+
+### Add Movie 
+
+Within the user dashboard, the next step is to add a movie to your list. The user must choose 'A' to add a new book. The user can also choose 'B' if they just want to view their movie list and not add anything. They are asked to add the Movie Title, Director and Genre. They are then ask if they have viewed it or not, they must choose 'Y' or 'N' here. They will then be asked to rate the movie out of 5. 
+
+<img src="https://github.com/AdamVictory/Whatsthatmovie/blob/main/wireframescreenshots/movies.png">
+
+### View All Movies
+
+The user can choose to view all of their movies added, they can also choose to edit this list. 
+
+<img src="">
+
+
+## Testing 
+
+I tested this project using (http://pep8online.com/), no errors were reported. However there were some warnings about trailing whitespace and my intro slogan exceeded 79 characters so I shortened it.  I also carried out testing on Gitpod and also on Heroku. 
+
+## Bugs, Issues and Errors 
+
+There were some bugs that developed throughout the making of this app. Most were to do with the format of the python code. 
+
+The only current issue is the Movie ID part does not work in Google Sheets. 
 
 
 
